@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бриф на разработку сайта — Кирилл Чумак</title>
+  <meta name="description" content="Короткий бриф на индивидуальное цифровое представление работающего бизнеса. Поможет подготовиться к созвону.">
+  <meta name="theme-color" content="#F8F6EE">
+    <!-- Open Graph & Social Preview -->
+  <meta property="og:title" content="Кирилл Чумак — Индивидуальные сайты для сервисного бизнеса">
+  <meta property="og:description" content="Индивидуальный дизайн, авторская система онлайн-записи (0 ₽) и чистый код для wellness, студий и сервисных проектов.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://siterf.ru/">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Кирилл Чумак">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/images/og-image.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .brief-page {
+      padding: calc(var(--nav-height) + 2.5rem) 0 6rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wizard-box {
+      background: #FFFFFF;
+      border: 1px solid rgba(36, 56, 52, 0.08);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.75rem, 4vw, 3rem);
+      box-shadow: 0 12px 40px -10px rgba(36, 56, 52, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      max-width: 740px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .wizard-steps-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--bdr);
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .wizard-bullets {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .stage-idx {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .stage-idx.active {
+      background: var(--eucalyptus);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(85, 120, 114, 0.3);
+    }
+
+    .stage-idx.inactive {
+      background: var(--surface-soft);
+      color: var(--txt-muted);
+      border: 1px solid var(--bdr);
+    }
+
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--txt-heading);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      background: var(--surface-soft);
+      border: 1px solid rgba(36, 56, 52, 0.12);
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--txt);
+      outline: none;
+      transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      background: #FFFFFF;
+      border-color: var(--eucalyptus);
+      box-shadow: 0 0 0 3px rgba(85, 120, 114, 0.15);
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 560px) {
+      .check-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1rem;
+      background: var(--surface-soft);
+      border: 1px solid rgba(36, 56, 52, 0.1);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--txt);
+      transition: all 0.25s ease;
+    }
+
+    .check-label:hover {
+      border-color: var(--eucalyptus);
+      background: #FFFFFF;
+    }
+
+    .check-label input[type="checkbox"],
+    .check-label input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--eucalyptus);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <header class="nav-wrap">
+    <nav class="nav-bar" aria-label="Основная навигация">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 4V20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M17 5L6 13.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10.5 10L18 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="19" cy="5" r="2" fill="#E6C9A1"/>
+</svg></div>
+        <span>Кирилл Чумак</span>
+      </a>
+      <a href="index.html" class="btn-secondary" style="padding: 0.45rem 1.1rem; font-size: 0.85rem;">← На главную</a>
+    </nav>
+  </header>
+
+  <main class="brief-page">
+    <div class="wrap">
+      
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 2.5rem;" class="reveal">
+        <div class="section-badge"><span class="dot"></span>Подготовка к проекту</div>
+        <h1 class="hero-h" style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 0.85rem;">
+          Расскажите о вашем <em>бизнесе</em>.
+        </h1>
+        <p class="section-desc" style="margin: 0 auto;">
+          Заполните 4 коротких шага. Это поможет мне изучить ваш профиль на картах, отзывы и конкурентов перед созвоном.
+        </p>
+      </div>
+
+      <div class="wizard-box reveal reveal-delay-1">
+        
+        <div class="wizard-steps-header">
+          <div class="wizard-bullets">
+            <span class="stage-idx active" data-page-bullet="1">1</span>
+            <span class="stage-idx inactive" data-page-bullet="2">2</span>
+            <span class="stage-idx inactive" data-page-bullet="3">3</span>
+            <span class="stage-idx inactive" data-page-bullet="4">4</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--txt-muted);" id="pageStepLabel">Шаг 1 из 4: О бизнесе</div>
+        </div>
+
+        <form id="pageBriefForm" novalidate>
+          <input type="text" name="website_trap" style="display: none;" tabindex="-1" autocomplete="off">
+
+          <!-- Шаг 1 -->
+          <div class="w-panel" data-page-panel="1" style="display: block;">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--txt-heading); margin-bottom: 0.35rem;">Шаг 1. Точки контакта бизнеса</h4>
+            <p style="font-size: 0.92rem; color: var(--txt2); margin-bottom: 1.6rem;">Укажите название и ссылки на текущее присутствие в сети.</p>
+
+            <div class="form-group">
+              <label for="p_comp">Название бизнеса *</label>
+              <input type="text" id="p_comp" name="company_name" placeholder="Например: Студия йоги и практик «Баланс»" required>
+            </div>
+
+            <div class="form-group">
+              <label for="p_city">Город</label>
+              <input type="text" id="p_city" name="city" placeholder="Например: Москва / Санкт-Петербург">
+            </div>
+
+            <div class="form-group">
+              <label for="p_srv">Сфера деятельности / ключевые услуги</label>
+              <input type="text" id="p_srv" name="services" placeholder="Например: хатха-йога, аэройога, массаж, ретриты">
+            </div>
+
+            <div class="form-group">
+              <label for="p_maps">Ссылка на Яндекс Карты / 2ГИС</label>
+              <input type="text" id="p_maps" name="maps_link" placeholder="https://yandex.ru/maps/...">
+            </div>
+
+            <div class="form-group">
+              <label for="p_soc">Ссылка на VK / соцсети / текущий сайт</label>
+              <input type="text" id="p_soc" name="social_link" placeholder="https://vk.com/... или https://...">
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+              <button type="button" class="btn-primary" data-page-next="2">
+                <span>Далее к задаче</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Шаг 2 -->
+          <div class="w-panel" data-page-panel="2" style="display: none;">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--txt-heading); margin-bottom: 0.35rem;">Шаг 2. Главная задача нового сайта</h4>
+            <p style="font-size: 0.92rem; color: var(--txt2); margin-bottom: 1.6rem;">Что вы хотели бы изменить или усилить с помощью сайта:</p>
+
+            <div class="form-group">
+              <div class="check-grid">
+                <label class="check-label">
+                  <input type="checkbox" name="goals" value="Статус и премиальность">
+                  <span>Передать атмосферу и статус</span>
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="goals" value="Автоматизация записи">
+                  <span>Внедрить онлайн-запись (YClients/CRM)</span>
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="goals" value="Обоснование чека">
+                  <span>Обосновать цены и ценность услуг</span>
+                </label>
+                <label class="check-label">
+                  <input type="checkbox" name="goals" value="Разгрузка админа">
+                  <span>Разгрузить администраторов от рутины</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.5rem;">
+              <label for="p_curr">Что сейчас не устраивает в текущей презентации?</label>
+              <textarea id="p_curr" name="current_issues" rows="3" placeholder="Например: клиенты не понимают разницу между направлениями, задают много однотипных вопросов в мессенджерах..."></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+              <button type="button" class="btn-secondary" data-page-prev="1">← Назад</button>
+              <button type="button" class="btn-primary" data-page-next="3">
+                <span>Далее к деталям</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Шаг 3 -->
+          <div class="w-panel" data-page-panel="3" style="display: none;">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--txt-heading); margin-bottom: 0.35rem;">Шаг 3. Материалы и сроки</h4>
+            <p style="font-size: 0.92rem; color: var(--txt2); margin-bottom: 1.6rem;">Что уже готово для старта работы:</p>
+
+            <div class="form-group">
+              <label>Есть ли у вас фото интерьера / команды?</label>
+              <div class="check-grid">
+                <label class="check-label">
+                  <input type="radio" name="photo_ready" value="Да, есть качественные фото">
+                  <span>Да, есть хорошие фото</span>
+                </label>
+                <label class="check-label">
+                  <input type="radio" name="photo_ready" value="Планируем фотосессию">
+                  <span>Планируем фотосессию</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.25rem;">
+              <label for="p_deadline">Желаемые сроки запуска</label>
+              <input type="text" id="p_deadline" name="deadline" placeholder="Например: в течение 2-3 недель / к открытию студии">
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+              <button type="button" class="btn-secondary" data-page-prev="2">← Назад</button>
+              <button type="button" class="btn-primary" data-page-next="4">
+                <span>Контакты</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Шаг 4 -->
+          <div class="w-panel" data-page-panel="4" style="display: none;">
+            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--txt-heading); margin-bottom: 0.35rem;">Шаг 4. Контактные данные</h4>
+            <p style="font-size: 0.92rem; color: var(--txt2); margin-bottom: 1.6rem;">Куда отправить предварительные мысли и назначить созвон:</p>
+
+            <div class="form-group">
+              <label for="p_name">Ваше имя *</label>
+              <input type="text" id="p_name" name="client_name" placeholder="Как к вам обращаться" required>
+            </div>
+
+            <div class="form-group">
+              <label for="p_tg">MAX / Telegram / Телефон для связи *</label>
+              <input type="text" id="p_tg" name="contact_info" placeholder="@username, ссылка или +7 (999) 000-00-00" required>
+            </div>
+
+            <div class="form-group">
+              <label for="p_comment">Дополнительные пожелания или ссылки</label>
+              <textarea id="p_comment" name="comment" rows="3" placeholder="Любые мысли или примеры сайтов, которые вам нравятся..."></textarea>
+            </div>
+
+                        <!-- Согласие с обработкой данных (152-ФЗ) -->
+            <div class="form-consent-group" id="briefConsentGroup">
+              <input type="checkbox" id="b_consent" name="consent" checked required>
+              <label for="b_consent">
+                Нажимая кнопку, я даю согласие на <a href="consent.html" target="_blank">обработку персональных данных</a> и соглашаюсь с <a href="privacy.html" target="_blank">политикой конфиденциальности</a> и <a href="offer.html" target="_blank">офертой</a>
+              </label>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem;">
+              <button type="button" class="btn-secondary" data-page-prev="3">← Назад</button>
+              <button type="submit" class="btn-primary" id="briefSubmitBtn">
+                <span>Отправить бриф</span>
+                <span>✓</span>
+              </button>
+            </div>
+          <!-- Экран успеха -->
+          <div id="pageSuccessBox" style="display: none; text-align: center; padding: 2.5rem 1rem;">
+            <h3 style="font-size: 1.6rem; color: var(--accent); margin-bottom: 0.75rem;">✓ Бриф успешно получен.</h3>
+            <p style="color: var(--txt2); font-size: 1rem; line-height: 1.65; max-width: 520px; margin: 0 auto 1.5rem;">
+              Спасибо! Информация о вашем бизнесе получена.<br>
+              Я изучу ваш профиль на картах, отзывы и конкурентов, после чего свяжусь с вами для согласования удобного времени созвона.<br><br>
+              — Кирилл Чумак
+            </p>
+            <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+              <a href="https://max.ru/u/f9LHodD0cOL68gNgiS_paG7fOAAXNXEuerM7QDDLKK7kc8lODccwGp84FL4" target="_blank" rel="noopener" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+                Написать в MAX →
+              </a>
+              <a href="https://t.me/Chumak_Kirill" target="_blank" rel="noopener" class="btn-secondary" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+                Написать в Telegram →
+              </a>
+              <a href="index.html" class="btn-secondary" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+                ← На главную
+              </a>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 4V20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M17 5L6 13.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10.5 10L18 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="19" cy="5" r="2" fill="#E6C9A1"/>
+</svg></div>
+          Кирилл Чумак
+        </div>
+        <div class="footer-meta">
+          Индивидуальные сайты для сервисного бизнеса &nbsp;·&nbsp;
+          <a href="https://max.ru/u/f9LHodD0cOL68gNgiS_paG7fOAAXNXEuerM7QDDLKK7kc8lODccwGp84FL4" target="_blank" rel="noopener">MAX @Chumak_Kirill</a> &nbsp;·&nbsp;
+          <a href="https://t.me/Chumak_Kirill" target="_blank" rel="noopener">Telegram @Chumak_Kirill</a> &nbsp;·&nbsp;
+          <a href="index.html">← На главную</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

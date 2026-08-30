@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/frames/
+
+Sitemap: https://chumak.site/sitemap.xml

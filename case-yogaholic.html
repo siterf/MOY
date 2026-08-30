@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейс: «Йогахолик» — сайт студии йоги и практик в Москве | Кирилл Чумак</title>
+  <meta name="description" content="Разработка продающего сайта для московской студии йоги «Йогахолик»: позиционирование, каталог 9 направлений, интеграция расписания YClients, презентация мастеров и воронка пробного занятия.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Кейс: «Йогахолик» — сайт для студии йоги в Москве | Кирилл Чумак">
+  <meta property="og:description" content="Цифровое представление студии йоги: от каталога направлений и презентации мастеров до интеграции с YClients.">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="theme-color" content="#F8F6EE">
+
+    <!-- Open Graph & Social Preview -->
+  <meta property="og:title" content="Кирилл Чумак — Индивидуальные сайты для сервисного бизнеса">
+  <meta property="og:description" content="Индивидуальный дизайн, авторская система онлайн-записи (0 ₽) и чистый код для wellness, студий и сервисных проектов.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://siterf.ru/">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Кирилл Чумак">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/images/og-image.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* ═══════════════════════════════════════════════════
+       CASE STUDY PAGE — стили страницы
+       ═══════════════════════════════════════════════════ */
+
+    /* ─── CASE HERO ─── */
+    .case-hero {
+      padding: clamp(6rem, 12vh, 9rem) 0 clamp(3rem, 6vh, 5rem);
+    }
+
+    .case-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .case-hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .case-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .case-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      background: var(--surface-soft);
+      border: 1px solid var(--bdr);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--txt-muted);
+    }
+
+    .case-hero-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--txt-heading);
+    }
+
+    .case-hero-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .case-hero-sub {
+      font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+      color: var(--txt2);
+      line-height: 1.65;
+      max-width: 48ch;
+    }
+
+    .case-hero-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .case-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .case-meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--txt-muted);
+      font-weight: 600;
+    }
+
+    .case-meta-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--txt-heading);
+    }
+
+    .case-hero-visual {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--bdr);
+    }
+
+    .case-hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .case-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .case-hero-meta {
+        gap: 1.5rem;
+      }
+    }
+
+    /* ─── Back link ─── */
+    .case-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--txt-muted);
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .case-back:hover {
+      color: var(--accent);
+    }
+
+    /* ─── SECTION SPACING ─── */
+    .case-section {
+      padding: clamp(3.5rem, 7vh, 5.5rem) 0;
+    }
+
+    /* ─── BUSINESS CARD ─── */
+    .case-business-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .case-biz-card {
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .case-biz-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--txt-heading);
+    }
+
+    .case-biz-card p {
+      font-size: 0.95rem;
+      color: var(--txt2);
+      line-height: 1.65;
+    }
+
+    .case-biz-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .case-biz-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--txt2);
+      line-height: 1.55;
+    }
+
+    .case-biz-card ul li .chk {
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      .case-business-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── BEFORE / AFTER ─── */
+    .case-ba-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .case-ba-card {
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .case-ba-card.before {
+      background: var(--surface-soft);
+      border: 1px solid var(--bdr);
+    }
+
+    .case-ba-card.after {
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+    }
+
+    .case-ba-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--txt-muted);
+    }
+
+    .case-ba-card.after .case-ba-label {
+      color: var(--accent);
+    }
+
+    .case-ba-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--txt-heading);
+      line-height: 1.3;
+    }
+
+    .case-ba-card p, .case-ba-card li {
+      font-size: 0.92rem;
+      color: var(--txt2);
+      line-height: 1.6;
+    }
+
+    .case-ba-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .case-ba-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .case-ba-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.25rem;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .case-ba-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .case-ba-arrow {
+        transform: rotate(90deg);
+        padding: 0.5rem 0;
+        justify-self: center;
+      }
+    }
+
+    /* ─── STAGES TIMELINE ─── */
+    .case-stages {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 2rem;
+    }
+
+    .case-stage {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .case-stage:last-child {
+      border-bottom: none;
+    }
+
+    .case-stage-num {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .case-stage-body h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--txt-heading);
+      margin-bottom: 0.35rem;
+    }
+
+    .case-stage-body p {
+      font-size: 0.92rem;
+      color: var(--txt2);
+      line-height: 1.6;
+    }
+
+    /* ─── GALLERY ─── */
+    .case-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .case-gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--bdr);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--surface);
+    }
+
+    .case-gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .case-gallery-item.wide {
+      grid-column: 1 / -1;
+    }
+
+    .case-gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .case-gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 1.25rem 1rem;
+      background: linear-gradient(to top, rgba(17, 19, 23, 0.85), transparent);
+      color: #FFF;
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 640px) {
+      .case-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── DECISIONS GRID ─── */
+    .case-decisions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .case-decision-card {
+      padding: 1.75rem;
+      background: var(--surface);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .case-decision-card:hover {
+      border-color: var(--accent-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .case-decision-card .section-badge {
+      width: fit-content;
+    }
+
+    .case-decision-card h4 {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--txt-heading);
+      line-height: 1.3;
+    }
+
+    .case-decision-card p {
+      font-size: 0.9rem;
+      color: var(--txt2);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .case-decisions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── CTA SECTION ─── */
+    .case-cta-box {
+      text-align: center;
+      padding: clamp(3rem, 6vh, 5rem) 2rem;
+      background: var(--surface);
+      border: 1px solid var(--bdr);
+      border-radius: var(--radius-lg);
+      margin-top: 2rem;
+    }
+
+    .case-cta-box h2 {
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 800;
+      color: var(--txt-heading);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .case-cta-box h2 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .case-cta-box p {
+      font-size: 0.95rem;
+      color: var(--txt2);
+      max-width: 50ch;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ─── Yogaholic color swatch ─── */
+    .color-swatch-row {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.75rem 0.3rem 0.35rem;
+      border-radius: var(--radius-full);
+      background: var(--surface);
+      border: 1px solid var(--bdr);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--txt-muted);
+    }
+
+    .color-swatch-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- ─── NAVIGATION ─── -->
+  <header class="nav-wrap">
+    <nav class="nav-bar" aria-label="Навигация кейса">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 4V20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M17 5L6 13.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10.5 10L18 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="19" cy="5" r="2" fill="#E6C9A1"/>
+</svg></div>
+        <span>Кирилл Чумак</span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="index.html" class="case-back" style="margin-bottom: 0; font-size: 0.84rem;">← На главную</a>
+        <a href="https://yogaholic-studio.ru/" target="_blank" rel="noopener" class="btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <span>Сайт проекта</span>
+          <span style="font-size: 0.9em;">↗</span>
+        </a>
+        <a href="index.html#contact" class="nav-cta-btn">Обсудить проект →</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       01. CASE HERO
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-hero">
+    <div class="wrap">
+
+      <div class="case-hero-grid">
+
+        <!-- Текстовый контент -->
+        <div class="case-hero-content reveal">
+          <div class="case-tag-row">
+            <span class="case-tag">Маркетинг и структура</span>
+            <span class="case-tag">UX/UI архитектура</span>
+            <span class="case-tag">Интеграция YClients</span>
+            <span class="case-tag">Разработка</span>
+          </div>
+
+          <h1 class="case-hero-title">
+            «Йогахолик» — <em>живой и понятный</em><br class="hide-mobile">
+            сайт студии йоги в Москве
+          </h1>
+
+          <p class="case-hero-sub">
+            Создание легкого и дружелюбного цифрового пространства для студии в Новой Москве. Структурировали 9 направлений практик, раскрыли заботливый подход преподавателей и внедрили бесшовную онлайн-запись через YClients.
+          </p>
+
+          <div class="case-hero-meta" style="margin-bottom: 1.5rem;">
+            <div class="case-meta-item">
+              <span class="case-meta-label">Клиент</span>
+              <span class="case-meta-value">Студия «Йогахолик»</span>
+            </div>
+            <div class="case-meta-item">
+              <span class="case-meta-label">Локация</span>
+              <span class="case-meta-value">Москва (Коммунарка)</span>
+            </div>
+            <div class="case-meta-item">
+              <span class="case-meta-label">Формат</span>
+              <span class="case-meta-value">Landing Page + CRM интеграции</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center;">
+            <a href="https://yogaholic-studio.ru/" target="_blank" rel="noopener" class="btn-primary" style="padding: 0.75rem 1.4rem;">
+              <span>Смотреть живой сайт</span>
+              <span style="font-size: 1.1em;">↗</span>
+            </a>
+            <a href="#result" class="btn-secondary" style="padding: 0.75rem 1.2rem;">
+              <span>Обзор решений</span>
+              <span>↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Визуал — скриншот hero -->
+        <div class="case-hero-visual reveal reveal-delay-1">
+          <a href="https://yogaholic-studio.ru/" target="_blank" rel="noopener" title="Открыть сайт проекта" style="display: block; position: relative; border-radius: var(--radius-md); overflow: hidden;">
+            <img 
+              src="assets/images/cases/yogaholic/screenshot-hero.png" 
+              alt="Главный экран сайта «Йогахолик» — Йога в большом городе" 
+              width="1440" 
+              height="900"
+              loading="eager"
+            >
+            <div style="position: absolute; top: 12px; right: 12px; background: rgba(17, 19, 23, 0.75); backdrop-filter: blur(8px); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 4px;">
+              <span>Онлайн</span> ↗
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       02. БИЗНЕС
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-section bg-alt" id="business">
+    <div class="wrap">
+
+      <div class="reveal">
+        <div class="numbered-header">
+          <div class="numbered-bullet"></div>
+          <span class="numbered-label">01 / Бизнес-контекст</span>
+        </div>
+        <h2 class="section-title">
+          Йога в ритме мегаполиса: <em>снять страх первого шага</em>.
+        </h2>
+        <p class="section-desc">
+          Студия предлагает современный взгляд на йогу: радость, свобода движения и восстановление ресурса без догм и сложной эзотерики. Здесь проводятся как классические практики, так и трендовые форматы — Аэройога в гамаках, динамичный Animal Flow, Пилатес и Барре у балетного станка.
+        </p>
+      </div>
+
+      <div class="case-business-grid">
+
+        <div class="case-biz-card reveal reveal-delay-1">
+          <h3>Позиционирование и барьеры гостей</h3>
+          <p>
+            Главный барьер для новичков в йоге — стереотип «я недостаточно гибкий» или «это сложно и травмоопасно». Сайту требовалось наглядно показать безопасность и дружелюбие пространства.
+          </p>
+          <ul>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Широкий выбор практик:</strong> 9 направлений, каждое решает свою задачу (здоровье спины, снятие стресса, тонус)</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Фокус на личность мастера:</strong> гости выбирают человека, поэтому профили тренеров поданы через доверие и эмпатию</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Легкий вход:</strong> специальный оффер на первое пробное занятие (880 ₽ / 0 ₽ при покупке абонемента)</span></li>
+          </ul>
+        </div>
+
+        <div class="case-biz-card reveal reveal-delay-2">
+          <h3>Автоматизация процессов</h3>
+          <p>
+            Раньше администраторы тратили часы на ручную переписку: отправляли фото расписания, уточняли свободные гамаки и вручную фиксировали оплату.
+          </p>
+          <ul>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Бесшовный YClients:</strong> онлайн-виджет расписания с актуальными слотами и мгновенным бронированием 24/7</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Прозрачные абонементы:</strong> понятная математика с расчетом стоимости 1 занятия и сроками действия</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Интеграция с картами:</strong> живой блок отзывов и маршрутов с Яндекс Карт прямо на сайте</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       03. ЗАДАЧА — BEFORE / AFTER
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-section" id="task">
+    <div class="wrap">
+
+      <div class="reveal">
+        <div class="numbered-header">
+          <div class="numbered-bullet"></div>
+          <span class="numbered-label">02 / Трансформация</span>
+        </div>
+        <h2 class="section-title">
+          Было и Стало: <em>от сомнений к быстрой записи</em>.
+        </h2>
+        <p class="section-desc">
+          Превратили сайт из статической визитки в эффективный и удобный хаб для клиентов и администраторов.
+        </p>
+      </div>
+
+      <div class="case-ba-grid reveal">
+
+        <div class="case-ba-card before">
+          <span class="case-ba-label">Было</span>
+          <h3>Сложный путь клиента</h3>
+          <ul>
+            <li><span class="chk" style="color: var(--txt-muted);">✕</span> <span><strong>Путаница в направлениях:</strong> гости не понимали разницу между Хатхой, Виньясой и Барре</span></li>
+            <li><span class="chk" style="color: var(--txt-muted);">✕</span> <span><strong>Ручная проверка слотов:</strong> необходимость писать администратору, чтобы узнать, есть ли места в гамаках</span></li>
+            <li><span class="chk" style="color: var(--txt-muted);">✕</span> <span><strong>Сухие списки тренеров:</strong> отсутствие понимания энергии и стиля преподавания мастеров</span></li>
+            <li><span class="chk" style="color: var(--txt-muted);">✕</span> <span><strong>Потеря лидов во внерабочее время:</strong> заявки ночью или в выходные оставались без ответа</span></li>
+          </ul>
+        </div>
+
+        <div class="case-ba-arrow">→</div>
+
+        <div class="case-ba-card after">
+          <span class="case-ba-label">Стало</span>
+          <h3>Удобная цифровая экосистема</h3>
+          <ul>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Интерактивный путеводитель:</strong> карточки направлений с тегами (база, дыхание, баланс, легкость)</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Запись в 1 клик 24/7:</strong> актуальный календарь свободных мест в реальном времени</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Человечный блок мастеров:</strong> формат «Кто я / Что умею / Чем помогу» снимает барьер первого визита</span></li>
+            <li><span class="chk" style="color: var(--accent);">✓</span> <span><strong>Ясный выбор абонементов:</strong> интерактивные вкладки для групповых, абонементов и индивидуальных занятий</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       04. ЧТО БЫЛО СДЕЛАНО — ЭТАПЫ
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-section bg-alt" id="process">
+    <div class="wrap">
+
+      <div class="reveal">
+        <div class="numbered-header">
+          <div class="numbered-bullet"></div>
+          <span class="numbered-label">03 / Процесс</span>
+        </div>
+        <h2 class="section-title">
+          Что было <em>сделано</em>.
+        </h2>
+        <p class="section-desc">
+          Комплексный подход: от аналитики пользовательских сценариев до чистой интеграции виджетов.
+        </p>
+      </div>
+
+      <div class="case-stages">
+
+        <div class="case-stage reveal reveal-delay-1">
+          <div class="case-stage-num">01</div>
+          <div class="case-stage-body">
+            <h4>Структурирование и гид по 9 направлениям</h4>
+            <p>Разложили все практики студии (Хатха, Аэройога, Йога-нидра, Йогатерапия, Пилатес, Стретчинг, Барре, Animal Flow) по понятным карточкам. Добавили теги-ориентиры, чтобы новичок мог выбрать практику под свой запрос за 15 секунд.</p>
+          </div>
+        </div>
+
+        <div class="case-stage reveal reveal-delay-2">
+          <div class="case-stage-num">02</div>
+          <div class="case-stage-body">
+            <h4>Персонализация команды мастеров</h4>
+            <p>Вместо скучных биографий создали формат «диалога»: каждый преподаватель раскрывает, с какими запросами помогает гостям (раскрытие женской энергии, снятие зажимов в спине, работа с дыханием). Это формирует доверие еще до первого звонка.</p>
+          </div>
+        </div>
+
+        <div class="case-stage reveal reveal-delay-3">
+          <div class="case-stage-num">03</div>
+          <div class="case-stage-body">
+            <h4>Энергичная и теплая дизайн-система</h4>
+            <p>Подобрана вдохновляющая палитра: акцентный коралл (#E75773), теплое золото (#FCE181), чистый графит и светлый фон (#FBFBFC). Крупная типографика и эмоциональные фото создают ощущение света, уюта и энергии.</p>
+            <div class="color-swatch-row">
+              <div class="color-swatch"><div class="color-swatch-dot" style="background: #E75773;"></div> #E75773 Коралл (Акцент)</div>
+              <div class="color-swatch"><div class="color-swatch-dot" style="background: #FCE181;"></div> #FCE181 Золото (Свет)</div>
+              <div class="color-swatch"><div class="color-swatch-dot" style="background: #1E1E1E;"></div> #1E1E1E Графит</div>
+              <div class="color-swatch"><div class="color-swatch-dot" style="background: #F4F2EE;"></div> #F4F2EE Фон</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-stage reveal reveal-delay-1">
+          <div class="case-stage-num">04</div>
+          <div class="case-stage-body">
+            <h4>Интерактивный расчет цен и сертификаты</h4>
+            <p>Спроектировали удобный прайс с переключением между разовыми визитами, пакетами от 4 до 36 занятий и персональными тренировками. Добавили возможность моментального заказа подарочных сертификатов.</p>
+          </div>
+        </div>
+
+        <div class="case-stage reveal reveal-delay-2">
+          <div class="case-stage-num">05</div>
+          <div class="case-stage-body">
+            <h4>Интеграция YClients и Яндекс Карт</h4>
+            <p>Внедрили виджет онлайн-расписания YClients, позволяющий выбрать время и забронировать коврик в 2 клика. Интегрировали живую карту и реальные отзывы с Яндекс Карт с рейтингом 5.0.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       05. ВИЗУАЛЬНЫЙ РЕЗУЛЬТАТ — ГАЛЕРЕЯ
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-section" id="result">
+    <div class="wrap">
+
+      <div class="reveal">
+        <div class="numbered-header">
+          <div class="numbered-bullet"></div>
+          <span class="numbered-label">04 / Реализация</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">
+              Визуальное <em>воплощение</em>.
+            </h2>
+            <p class="section-desc" style="margin-bottom: 0;">
+              Интуитивный интерфейс, разработанный под реальные привычки мобильных пользователей.
+            </p>
+          </div>
+          <a href="https://yogaholic-studio.ru/" target="_blank" rel="noopener" class="btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.9rem;">
+            <span>Открыть сайт проекта</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="case-gallery">
+
+        <div class="case-gallery-item wide reveal">
+          <img 
+            src="assets/images/cases/yogaholic/screenshot-full.png" 
+            alt="Полный скриншот сайта Йогахолик" 
+            loading="lazy"
+          >
+          <div class="case-gallery-caption">
+            Главная страница — от первого экрана с оффером до каталога практик, расписания и отзывов
+          </div>
+        </div>
+
+        <div class="case-gallery-item reveal reveal-delay-1">
+          <img 
+            src="assets/images/cases/yogaholic/equipment.webp" 
+            alt="Оборудование и атмосфера студии Йогахолик" 
+            loading="lazy"
+          >
+          <div class="case-gallery-caption">
+            Пространство студии — современное оборудование, уютная атмосфера и светлые залы
+          </div>
+        </div>
+
+        <div class="case-gallery-item reveal reveal-delay-2">
+          <img 
+            src="assets/images/cases/yogaholic/hammocks.webp" 
+            alt="Аэройога в гамаках студии Йогахолик" 
+            loading="lazy"
+          >
+          <div class="case-gallery-caption">
+            Практика в гамаках — профессиональные полотна для безопасных полетов и растяжки
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       06. КЛЮЧЕВЫЕ РЕШЕНИЯ
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-section bg-alt" id="decisions">
+    <div class="wrap">
+
+      <div class="reveal">
+        <div class="numbered-header">
+          <div class="numbered-bullet"></div>
+          <span class="numbered-label">05 / Решения</span>
+        </div>
+        <h2 class="section-title">
+          Ключевые <em>решения</em> в проекте.
+        </h2>
+      </div>
+
+      <div class="case-decisions-grid">
+
+        <div class="case-decision-card reveal reveal-delay-1">
+          <div class="section-badge"><span class="dot"></span>Автоматизация</div>
+          <h4>Интерактивный виджет расписания YClients</h4>
+          <p>Гость выбирает удобный слот и записывается онлайн без необходимости ждать ответа менеджера в мессенджере.</p>
+        </div>
+
+        <div class="case-decision-card reveal reveal-delay-2">
+          <div class="section-badge"><span class="dot"></span>Конверсия</div>
+          <h4>Лид-магнит пробного занятия</h4>
+          <p>Специальная цена на первый визит (880 ₽) с бесплатным зачетом при покупке абонемента снижает порог входа в 3 раза.</p>
+        </div>
+
+        <div class="case-decision-card reveal reveal-delay-1">
+          <div class="section-badge"><span class="dot"></span>Доверие</div>
+          <h4>Открытые преподаватели и отзывы</h4>
+          <p>Прямая интеграция отзывов с Яндекс Карт и подробные карточки тренеров с их философией и подходом к ученикам.</p>
+        </div>
+
+        <div class="case-decision-card reveal reveal-delay-2">
+          <div class="section-badge"><span class="dot"></span>Mobile-First</div>
+          <h4>Удобство для мобильных пользователей</h4>
+          <p>Более 85% гостей студии заходят со смартфонов — сайт оптимизирован под мгновенную загрузку и управление одним пальцем.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       07. CTA
+       ═══════════════════════════════════════════════════ -->
+  <section class="case-section" id="cta">
+    <div class="wrap">
+
+      <div class="case-cta-box reveal">
+        <div class="section-badge" style="margin: 0 auto 1.25rem;"><span class="dot"></span>Сотрудничество</div>
+        <h2>Готовы упаковать свою студию в <em>сильный цифровой актив</em>?</h2>
+        <p>
+          Проанализирую ваш бизнес, структурирую услуги и создам сайт, который подчеркнет атмосферу студии, автоматизирует запись и привлечет новых гостей.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html#contact" class="btn-primary">
+            <span>Обсудить задачу</span>
+            <span>→</span>
+          </a>
+          <a href="https://t.me/Chumak_Kirill" target="_blank" rel="noopener" class="btn-secondary">
+            <span>Написать в Telegram ↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+          <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-brand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 4V20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M17 5L6 13.5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10.5 10L18 20" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="19" cy="5" r="2" fill="#E6C9A1"/>
+</svg></div>
+          <div>
+            <div style="font-weight: 700; font-size: 1.05rem; color: #FFFFFF;">Кирилл Чумак</div>
+            <div style="font-size: 0.76rem; color: rgba(255,255,255,0.6); margin-top: 2px;">Индивидуальные сайты для сервисного бизнеса</div>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <a href="https://max.ru/u/f9LHodD0cOL68gNgiS_paG7fOAAXNXEuerM7QDDLKK7kc8lODccwGp84FL4" target="_blank" rel="noopener">MAX</a>
+          <span class="footer-sep">·</span>
+          <a href="https://t.me/Chumak_Kirill" target="_blank" rel="noopener">Telegram</a>
+          <span class="footer-sep">·</span>
+          <a href="https://vk.com/kirill_chumak_31" target="_blank" rel="noopener">ВКонтакте</a>
+          <span class="footer-sep">·</span>
+          <a href="privacy.html">Конфиденциальность</a>
+          <span class="footer-sep">·</span>
+          <a href="consent.html">Согласие</a>
+          <span class="footer-sep">·</span>
+          <a href="offer.html">Оферта</a>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>© 2026 Кирилл Чумак · ИНН 312012975070 · Все права защищены.</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* Scroll Reveal */
+    (function () {
+      'use strict';
+      var reveals = document.querySelectorAll('.reveal');
+      if (reveals.length === 0) return;
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { observer.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+      }
+    })();
+  </script>
+
+</body>
+</html>

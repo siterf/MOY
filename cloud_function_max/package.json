@@ -1,0 +1,6 @@
+{
+  "name": "chumak-site-brief-engine",
+  "version": "1.0.0",
+  "description": "Serverless backend for Kirill Chumak website briefs delivery to MAX",
+  "main": "index.js"
+}
